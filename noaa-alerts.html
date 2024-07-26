@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local NWS Alerts Map</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    #title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 8px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+    }
+
+    #image-container {
+      width: 384px;
+      height: 216px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+    setTimeout(function() {
+      location.reload();
+    }, 120000); // Refresh every 2 minutes (120,000 milliseconds)
+  </script>
+</head>
+<body>
+  <div id="image-container">
+    <h3 id="title">Local NWS Alerts Map</h3>
+    <a id="image-link" href="https://www.weather.gov/" target="_blank">
+      <img id="image" src="https://forecast.weather.gov/wwamap/png/US.png" alt="Embedded Image">
+    </a>
+  </div>
+</body>
+</html>

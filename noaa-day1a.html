@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 1 Convective Outlook</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    #title {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-size: 8px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+    }
+
+    #image-container {
+      width: 384px;
+      height: 216px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    #image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+  <script>
+    function rotateImage() {
+      var image = document.getElementById("image");
+      var imageLinks = [
+        "https://www.spc.noaa.gov/products/outlook/day1otlk_1200.gif",
+        "https://www.spc.noaa.gov/products/outlook/day1otlk_1630.gif",
+        "https://www.spc.noaa.gov/products/outlook/day1otlk_2000.gif"
+      ];
+      var currentIndex = imageLinks.indexOf(image.src);
+
+      // Calculate the next index in the array
+      var nextIndex = (currentIndex + 1) % imageLinks.length;
+
+      // Set the source of the image to the next link
+      image.src = imageLinks[nextIndex];
+    }
+
+    setInterval(rotateImage, 2000); // Rotate every 2 seconds (2000 milliseconds)
+  </script>
+</head>
+<body>
+  <div id="image-container">
+    <h3 id="title">Day 1 Convective Outlook</h3>
+    <a id="image-link" href="https://www.spc.noaa.gov/products/outlook/day1otlk.html" target="_blank">
+      <img id="image" src="https://www.spc.noaa.gov/products/outlook/day1otlk_1200.gif" alt="Embedded Image">
+    </a>
+  </div>
+</body>
+</html>
